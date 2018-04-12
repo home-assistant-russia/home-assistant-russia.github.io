@@ -8,7 +8,7 @@ hero_unit: true
 is_homepage: true
 regenerate: true
 hide_github_edit: true
-description: Open-source home automation platform running on Python 3. Track and control all devices at home and automate control. Installation in less than a minute.
+description: Cистема домашней автоматизации с открытым исходным кодом, написанная на Python 3. Отслеживайте и управляйте всеми своими устройствами в доме, а также автоматизируйте само управление. Установка займёт меньше минуты.
 ---
 
 {% assign recent_release_post = site.categories['Release-Notes'].first %}
@@ -17,38 +17,58 @@ description: Open-source home automation platform running on Python 3. Track and
   <div class="grid">
     <div class="grid__item one-third lap-one-third palm-one-whole">
       <div class='current-version material-card text'>
-        <h1>Current Version: {{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}</h1>
-        Released: <span class='release-date'>{{ site.date_released | date: '%B %d, %Y' }}</span>
+        <h1>Текущая версия: {{ site.current_major_version }}.{{ site.current_minor_version }}.{{ site.current_patch_version }}</h1>
+<!--         Дата выпуска: <span class='release-date'>{{ site.date_released | date: '%B %d, %Y' }}</span> -->
+        Дата выпуска: <span class='release-date'>
+                        {{ site.date_released | date: "%-d" }}
+                        {% assign month = site.date_released | date: '%-m' %}
+                        {% case month %}
+                          {% when '1' %}января
+                          {% when '2' %}февраля
+                          {% when '3' %}марта
+                          {% when '4' %}апреля
+                          {% when '5' %}мая
+                          {% when '6' %}июня
+                          {% when '7' %}июля
+                          {% when '8' %}августа
+                          {% when '9' %}сентября
+                          {% when '10' %}октября
+                          {% when '11' %}ноября
+                          {% when '12' %}декабря
+                        {% endcase %}
+                        {{ site.date_released | date: "%Y" }}
+                      </span>
 
         <div class='links'>
-          <a href='{{ root_url }}{{ recent_release_post.url }}{{ site.patch_version_notes }}'>Release notes</a>
+          <a href='{{ root_url }}{{ recent_release_post.url }}{{ site.patch_version_notes }}'>Информация о выпуске</a>
         </div>
       </div>
       <div class='join-community material-card text'>
-        <h1>Join The Community</h1>
-        We love to help &amp; talk home automation.
+        <h1>Присоединиться к сообществу</h1>
+        Мы любим помогать и говорить о домашней автоматизации.
 
         <div class='links'>
-          <a href='https://community.home-assistant.io'>Forums</a>
-          <a href='https://discord.gg/c5DvZ4e'>Chat</a>
+          <a href='https://community.home-assistant.io'>Форум</a>
+          <a href='https://discord.gg/c5DvZ4e'>Чат</a>
+          <a href='https://t.me/homassistant'>Telegram-чат</a>
         </div>
       </div>
       <div class='material-card text'>
-        <h1>Alexa, turn on the lights</h1>
-        Use Alexa to control Home Assistant.
+        <h1>Alexa, включи свет</h1>
+        Используйте Alexa для управления Home Assistant.
 
         <div class='links'>
-          <a href='/cloud/'>LEARN MORE</a>
+          <a href='/cloud/'>Подробнее</a>
         </div>
       </div>
 
       <a class='material-card highlight-blog-post' href='/blog/2016/01/19/perfect-home-automation/'>
-        Read our founder's vision for the perfect home automation <i class="icon-arrow-right"></i>
+        Прочитайте видение идеальной домашней автоматизации от основателя Home Assistant <i class="icon-arrow-right"></i>
       </a>
     </div>
     <div class="grid__item two-thirds lap-two-thirds palm-one-whole">
       <div class='recent-posts material-card text'>
-        <h1>Recent Blog Posts</h1>
+        <h1>Свежие записи в блоге</h1>
 
         {% for post in site.posts limit: 3 %}
           <li class="post">
@@ -59,7 +79,7 @@ description: Open-source home automation platform running on Python 3. Track and
       </div>
 
       <a class='material-card highlight-blog-post large' href='/blog/2017/07/25/introducing-hassio/'>
-        Learn how Hass.io can turn your Raspberry Pi into the ultimate home automation hub <i class="icon-arrow-right"></i>
+        Узнайте, как Hass.io может превратить Ваш Raspberry Pi в полноценный центр домашней автоматизации <i class="icon-arrow-right"></i>
       </a>
 
       <a class='material-card shirt-promo' href='/blog/2017/02/22/home-assistant-tshirts-have-arrived/'>
@@ -118,7 +138,7 @@ description: Open-source home automation platform running on Python 3. Track and
 
     <div class="seen-press grid__item one-whole lap-one-whole palm-one-whole">
       <div class="material-card">
-        <h1>Home Assistant in the press</h1>
+        <h1>Home Assistant в прессе</h1>
 
         <a href='https://www.producthunt.com/posts/home-assistant'><img src='/images/press/producthunt.com.png' alt='ProductHunt.com logo'></a>
 
