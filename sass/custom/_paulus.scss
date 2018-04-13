@@ -348,7 +348,7 @@ p.note {
 
   &::before {
     font-family: "FontAwesome", sans-serif;
-    content: "\f05a" " Note " attr(data-title);
+    content: "\f05a" " Примечание " attr(data-title);
     background-color: #6ab0de;
     color: white;
     font-weight: bold;
@@ -370,7 +370,7 @@ p.note {
 
     &::before {
       background-color: rgb(187, 185, 13);;
-      content: "\f071" " Warning " attr(data-title);
+      content: "\f071" " Предупреждение " attr(data-title);
     }
   }
 
